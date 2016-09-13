@@ -1,4 +1,4 @@
-package com.indefsystems.dp.observer.demo1.view.controller;
+package com.indefsystems.dp.observer.demo1.controller;
 
 import com.indefsystems.dp.observer.demo1.LoginFormEvent;
 import com.indefsystems.dp.observer.demo1.LoginListener;
