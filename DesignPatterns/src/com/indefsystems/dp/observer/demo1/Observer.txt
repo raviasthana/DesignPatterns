@@ -1,0 +1,5 @@
+Observer pattern is quite common in GUI applications and in/with event driven programming.
+
+Observer pattern mainly involves two entities. A SUBJECT and an OBSERVER.
+OBSERVER registers itself with the SUBJECT showing interest in an EVENT which SUBJECT
+may fire at a random time requiring OBSERVER to perform certain activities. 
