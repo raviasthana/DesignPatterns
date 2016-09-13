@@ -2,7 +2,7 @@ package com.indefsystems.dp.observer.demo1.main;
 
 import javax.swing.SwingUtilities;
 
-import com.indefsystems.dp.observer.demo1.view.controller.Controller;
+import com.indefsystems.dp.observer.demo1.controller.Controller;
 import com.indefsystems.dp.observer.demo1.model.Model;
 import com.indefsystems.dp.observer.demo1.view.View;
 
