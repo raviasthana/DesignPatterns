@@ -1,4 +1,4 @@
-package com.indefsystems.dp.mvc.demo1.view.controller;
+package com.indefsystems.dp.mvc.demo1.controller;
 
 import com.indefsystems.dp.mvc.demo1.model.Model;
 import com.indefsystems.dp.mvc.demo1.view.View;

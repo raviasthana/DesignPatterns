@@ -2,9 +2,9 @@ package com.indefsystems.dp.mvc.demo1;
 
 import javax.swing.SwingUtilities;
 
+import com.indefsystems.dp.mvc.demo1.controller.Controller;
 import com.indefsystems.dp.mvc.demo1.model.Model;
 import com.indefsystems.dp.mvc.demo1.view.View;
-import com.indefsystems.dp.mvc.demo1.view.controller.Controller;
 
 public class Application {
 
