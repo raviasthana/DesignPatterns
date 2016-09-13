@@ -25,5 +25,4 @@ public class Controller {
 		this.model = model;
 		this.view = view;
 	}
-	
 }
