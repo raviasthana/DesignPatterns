@@ -28,7 +28,7 @@ public class View extends JFrame implements ActionListener {
 	private LoginListener loginListener;
 	
 	public View(Model model) {
-		super("MVC Demo");
+		super("Observer Pattern Demo");
 		
 		this.model = model;
 		
