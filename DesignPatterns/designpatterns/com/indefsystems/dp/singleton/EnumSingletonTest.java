@@ -18,6 +18,8 @@ public class EnumSingletonTest {
 		runEnumSingletonReflectionTest();
 		//test to prove that Enum singleton cannot be broken by serialization
 		runEnumSingletonSerializationTest();
+		//an enum cannot be cloned so no need to check EnumSingleton implementation
+		//for break by cloning
 	}
 	
 	private static void runEnumSingletonReflectionTest(){
@@ -67,9 +69,5 @@ public class EnumSingletonTest {
 		}else{
 			System.out.println("ALERT!ALERT! - EnumSingleton BROKEN by SERIALIZATION!!!");
 		}
-	}
-	
-	private static void runEnumSingletonCloneTest(){
-		EnumSingleton instanceOne = EnumSingleton.INSTANCE;
 	}
 }
