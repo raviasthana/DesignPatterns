@@ -19,7 +19,8 @@ package com.indefsystems.dp.singleton;
 public class EagerInitializedSingleton implements Cloneable { 
 	//A singleton should NOT implement Cloneable interface, but just for demonstration
 	//purposes, if for any reason Cloneable is implemented by the singleton
-	//then override clone method to throw CloneNotSupportedException
+	//then override clone method to throw CloneNotSupportedException to protect
+	//singleton to be broken by cloning
 
 	
 	private static EagerInitializedSingleton instance = new EagerInitializedSingleton();
