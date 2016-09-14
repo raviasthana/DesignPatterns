@@ -16,7 +16,11 @@ package com.indefsystems.dp.singleton;
  * @author RAsthana
  *
  */
-public class EagerInitializedSingleton {
+public class EagerInitializedSingleton implements Cloneable { 
+	//A singleton should NOT implement Cloneable interface, but just for demonstration
+	//purposes, if for any reason Cloneable is implemented by the singleton
+	//then override clone method to throw CloneNotSupportedException
+
 	
 	private static EagerInitializedSingleton instance = new EagerInitializedSingleton();
 	
@@ -27,5 +31,12 @@ public class EagerInitializedSingleton {
 	//global access point for singleton instance to outer world
 	public static EagerInitializedSingleton getInstance(){
 		return instance;
+	}
+	
+	@Override
+	//As this is a singleton, protect against breaking the singleton
+	//by cloning by throwing CloneNotSupportedException
+	protected Object clone() throws CloneNotSupportedException {
+		throw new CloneNotSupportedException("Cloning of a singleton is not permitted");
 	}
 }

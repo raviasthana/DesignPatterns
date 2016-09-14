@@ -68,4 +68,8 @@ public class EnumSingletonTest {
 			System.out.println("ALERT!ALERT! - EnumSingleton BROKEN by SERIALIZATION!!!");
 		}
 	}
+	
+	private static void runEnumSingletonCloneTest(){
+		EnumSingleton instanceOne = EnumSingleton.INSTANCE;
+	}
 }
