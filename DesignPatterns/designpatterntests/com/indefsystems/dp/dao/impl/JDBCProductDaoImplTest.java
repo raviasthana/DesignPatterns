@@ -19,8 +19,10 @@ public class JDBCProductDaoImplTest extends BaseDaoImpl {
 	private static final String HSQLDB_PASSWORD = "";
 	
 	@BeforeClass
-	public static void init() throws ClassNotFoundException{
+	public static void init() throws ClassNotFoundException, SQLException, IOException{
 		Class.forName(HSQLDB_JDBC_DRIVER_CLASS);
+		
+		initDatabase();
 	}
 	
 	private static void initDatabase() throws SQLException, IOException{
