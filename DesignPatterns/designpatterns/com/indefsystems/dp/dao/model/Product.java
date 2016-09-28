@@ -2,20 +2,35 @@ package com.indefsystems.dp.dao.model;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Date;
+import java.sql.Timestamp;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Product")
 public class Product implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
-	private String code;
+	@Id private String code;
     private String name;
-    private Date entryDate;
+    private Timestamp entryDate;
     private BigDecimal amount;
     private String unit;
     private int quantity;
+    @OneToOne
+    @JoinColumn(name="code")
     private StdNutrition stdNutrition;
+    
+    @OneToMany(fetch=FetchType.EAGER) //TODO remove EAGER and make it work for lazy loading
+    @JoinColumn(name="ProductCode")
     private List<NutritionInfo> nutritionInfoList;
     
 	public String getCode() {
@@ -30,10 +45,10 @@ public class Product implements Serializable{
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Date getEntryDate() {
+	public Timestamp getEntryDate() {
 		return entryDate;
 	}
-	public void setEntryDate(Date entryDate) {
+	public void setEntryDate(Timestamp entryDate) {
 		this.entryDate = entryDate;
 	}
 	public BigDecimal getAmount() {
