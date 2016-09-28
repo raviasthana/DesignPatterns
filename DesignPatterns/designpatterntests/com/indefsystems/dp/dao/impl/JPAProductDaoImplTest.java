@@ -9,6 +9,7 @@ import java.util.List;
 import org.junit.Test;
 
 import com.indefsystems.dp.dao.BaseDaoImpl;
+import com.indefsystems.dp.dao.DAOFactory;
 import com.indefsystems.dp.dao.ProductDao;
 import com.indefsystems.dp.dao.model.NutritionInfo;
 
@@ -17,7 +18,7 @@ public class JPAProductDaoImplTest extends BaseDaoImpl {
 	@Test
 	public void getNutrionInfoWithProductCode() throws SQLException {
 		
-		final ProductDao dao = new JPAProductDAOImpl();
+		final ProductDao dao = DAOFactory.getProductDao(DAOFactory.JPA_DAO);
 		
     	List<NutritionInfo> pnInfo = dao.getProductWithCode("CB1").
 											getNutritionInfoList();

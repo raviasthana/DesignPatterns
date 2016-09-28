@@ -11,12 +11,12 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-public enum PersistenceManager {
+public enum JPAPersistenceManager {
 	INSTANCE;
 	
 	private EntityManagerFactory emFactory;
 	
-	private PersistenceManager() {
+	private JPAPersistenceManager() {
 		
 		Thread.currentThread().setContextClassLoader(new ClassLoader() {
 

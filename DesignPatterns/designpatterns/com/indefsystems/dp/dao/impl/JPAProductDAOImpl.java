@@ -4,26 +4,40 @@ import java.sql.SQLException;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.PersistenceContextType;
 
-import com.indefsystems.dp.dao.PersistenceManager;
 import com.indefsystems.dp.dao.ProductDao;
 import com.indefsystems.dp.dao.model.Product;
 
 public class JPAProductDAOImpl implements ProductDao {
+
+	/*
+	 * TODO @PersistenceContext is not working with current setup.
+	 * make it work in SE setup
+	 */
+	//@PersistenceContext(type=PersistenceContextType.EXTENDED) 
+	EntityManager entityManager;
+	
+	public EntityManager getEntityManager() {
+		return entityManager;
+	}
+
+	public void setEntityManager(EntityManager entityManager) {
+		this.entityManager = entityManager;
+	}
 
 	@Override
 	public Product getProductWithCode(String code) throws SQLException {
 		
 		Product ret = null;
 		
-		EntityManager em = PersistenceManager.INSTANCE.getEntityManager();
-		em.getTransaction().begin();
+		entityManager.getTransaction().begin();
 		
-		ret = em.find(Product.class, code);
+		ret = entityManager.find(Product.class, code);
 		
-		em.getTransaction().commit();
-		em.close();
-		PersistenceManager.INSTANCE.close();
+		entityManager.getTransaction().commit();
+		entityManager.close();
 		
 		return ret;
 	}

@@ -9,6 +9,8 @@ import java.util.List;
 import org.junit.Test;
 
 import com.indefsystems.dp.dao.BaseDaoImpl;
+import com.indefsystems.dp.dao.DAOFactory;
+import com.indefsystems.dp.dao.ProductDao;
 import com.indefsystems.dp.dao.model.NutritionInfo;
 
 public class JDBCProductDaoImplTest extends BaseDaoImpl {
@@ -16,8 +18,7 @@ public class JDBCProductDaoImplTest extends BaseDaoImpl {
 	@Test
 	public void getNutrionInfoWithProductCode() throws SQLException {
 		
-		final JDBCProductDaoImpl dao = new JDBCProductDaoImpl();
-		dao.setConnection(getConnection());
+		final ProductDao dao = DAOFactory.getProductDao(DAOFactory.JDBC_DAO);
 		
     	List<NutritionInfo> pnInfo = dao.getProductWithCode("CB1").
 				getNutritionInfoList();
