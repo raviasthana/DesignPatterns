@@ -1,18 +1,14 @@
 package com.indefsystems.dp.dao;
 
+import static com.indefsystems.dp.dao.JDBCDatabaseManager.HSQLDB_JDBC_DRIVER_CLASS;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
 import org.junit.BeforeClass;
-
-import static com.indefsystems.dp.dao.JDBCDatabaseManager.HSQLDB_JDBC_DRIVER_CLASS;
-import static com.indefsystems.dp.dao.JDBCDatabaseManager.HSQLDB_JDBC_URL_IN_MEMORY;
-import static com.indefsystems.dp.dao.JDBCDatabaseManager.HSQLDB_PASSWORD;
-import static com.indefsystems.dp.dao.JDBCDatabaseManager.HSQLDB_USER;
 /**
  * Used here just to load data in "in-memory" HSQLDB
  * 
