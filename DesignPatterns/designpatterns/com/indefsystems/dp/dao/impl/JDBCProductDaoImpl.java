@@ -27,6 +27,8 @@ public class JDBCProductDaoImpl implements ProductDao {
 	@Override
 	public Product getProductWithCode(String code) throws SQLException {
 		
+		Product product = null;
+		
 		String sql = "Select * from Product where code = ?";
 		
 		PreparedStatement ps = getConnection().prepareStatement(sql);
@@ -35,11 +37,11 @@ public class JDBCProductDaoImpl implements ProductDao {
 		ResultSet rs = ps.executeQuery();
 		
 		if(rs.next()){
-			Product product = new Product();
+			product = new Product();
 			
 			product.setCode(rs.getString("code"));
 			product.setName(rs.getString("name"));
-			product.setEntryDate(rs.getDate("EntryDate"));
+			product.setEntryDate(rs.getTimestamp("EntryDate"));
 			product.setAmount(rs.getBigDecimal("amount"));
 			product.setUnit(rs.getString("unit"));
 			product.setQuantity(rs.getInt("Quantity"));
@@ -47,10 +49,15 @@ public class JDBCProductDaoImpl implements ProductDao {
 			product.setStdNutrition(getStdNutrition(rs.getString("StdNutritionCode")));
 			product.setNutritionInfoList(getProductNutritionInfo(product.getCode()));
 			
-			return product;
 		}
 		
-		return null;
+		//release the statement object as soon as done with it 
+		//rather than waiting for this to be close automatically as some point
+		//It is good practice to release resources as soon as you are done with
+		//them to avoid tying up database resources.
+		ps.close();
+		
+		return product;
 	}
 
 	@Override

@@ -3,11 +3,17 @@ package com.indefsystems.dp.dao.model;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "StdNutrition")
 public class StdNutrition implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	private String code;
+	@Id private String code;
 	private String unit;
 	private BigDecimal amount;
 

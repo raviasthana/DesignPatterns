@@ -1,2 +1,5 @@
 /bin/
 /.classpath
+/enumSerialized.ser
+/filename.ser
+/filename2.ser
