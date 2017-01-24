@@ -14,7 +14,7 @@ class ObservedObject extends Observable {
 	public void setValue(String value) {
 		// if value has changed notify observers
 		if (!watchedValue.equals(value)) {
-			System.out.println("Value changed to new value: " + value);
+			System.out.println("Value changed [In Observed] to new value: " + value);
 			watchedValue = value;
 
 			// mark as value changed
@@ -47,6 +47,6 @@ public class ObservableDemo implements Observer {
 	
 	@Override
 	public void update(Observable obj, Object arg) {
-		System.out.println("Update called");
+		System.out.println("[Observer] Update called");
 	}
 }
